@@ -11,7 +11,7 @@ void setup() {
 }
 
 void loop() {
-  // TURN ON
+  // LIGHT ON AND OFF
   moodLight();
   
   // DEBUG
@@ -25,6 +25,7 @@ void loop() {
 }
 
 void moodLight () {
+  // TURN ON
   for ( int i = 0; i < 150; i++ ) {
     no = checkSensor(analogRead(analogInPin));
 
@@ -32,6 +33,7 @@ void moodLight () {
     delay(10); 
   }
   
+  // TURN OFF
   for ( int i = 150; i > 0; i-- ) {
     no = checkSensor(analogRead(analogInPin));
 
