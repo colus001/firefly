@@ -12,20 +12,7 @@ void setup() {
 
 void loop() {
   // TURN ON
-  for ( int i = 0; i < 150; i++ ) {
-    no = checkSensor(analogRead(analogInPin));
-
-    lightOn(lights, no, i);
-    delay(10); 
-  }
-
-  // TURN OFF   
-  for ( int i = 150; i > 0; i-- ) {
-    no = checkSensor(analogRead(analogInPin));
-
-    lightOn(lights, no, i);
-    delay(10); 
-  }
+  moodLight();
   
   // DEBUG
   sensorValue = analogRead(analogInPin);
@@ -35,6 +22,22 @@ void loop() {
   Serial.println(outputValue);   
 
   delay(2);                     
+}
+
+void moodLight () {
+  for ( int i = 0; i < 150; i++ ) {
+    no = checkSensor(analogRead(analogInPin));
+
+    lightOn(lights, no, i);
+    delay(10); 
+  }
+  
+  for ( int i = 150; i > 0; i-- ) {
+    no = checkSensor(analogRead(analogInPin));
+
+    lightOn(lights, no, i);
+    delay(10); 
+  }
 }
 
 int checkSensor(int sensorValue) {
